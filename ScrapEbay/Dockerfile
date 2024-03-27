@@ -8,7 +8,7 @@ WORKDIR /app
 COPY ScrapEbay/spiders/ebay_spider.py .
 
 # Installer Scrapy et ses dépendances
-RUN pip install --no-cache-dir scrapy
+RUN pip install --no-cache-dir scrapy tqdm
 
 # Commande à exécuter lorsque le conteneur démarre
 CMD ["scrapy", "runspider", "ebay_spider.py"]
