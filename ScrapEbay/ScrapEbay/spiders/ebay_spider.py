@@ -1,8 +1,5 @@
 import scrapy
 import sqlite3
-import time
-import random
-from tqdm import tqdm
 
 class EbaySpiderSpider(scrapy.Spider):
     name = 'ebay_spider'
@@ -17,13 +14,14 @@ class EbaySpiderSpider(scrapy.Spider):
         self.conn.commit()
 
     def close(self, reason):
+        # Afficher les résultats de la base de données juste avant de fermer la connexion
+        self.print_database_results()
         self.cursor.close()
         self.conn.close()
 
     def parse(self, response):
         products = response.css('.dne-itemtile')
-        num_products = len(products)
-        for i, product in enumerate(tqdm(products, total=num_products, desc="Scraping")):
+        for product in products:
             image = product.css('.dne-itemtile-imagewrapper a .slashui-image-cntr img::attr(src)').get()
             name = product.css('.dne-itemtile-detail .ebayui-ellipsis-2::text, .dne-itemtile-detail .ebayui-ellipsis-3::text').get()
             price = product.css('.dne-itemtile-detail .first::text').get()
@@ -31,7 +29,9 @@ class EbaySpiderSpider(scrapy.Spider):
             discount = product.css('.dne-itemtile-detail .itemtile-price-bold::text').get()
             self.cursor.execute("INSERT INTO products VALUES (?, ?, ?, ?, ?)", (image, name, price, old_price, discount))
             self.conn.commit()
-            time.sleep(random.uniform(1, 2))
+
+    def print_database_results(self):
+        # Afficher les résultats de la base de données
         self.cursor.execute("SELECT * FROM products")
         rows = self.cursor.fetchall()
         for row in rows:
