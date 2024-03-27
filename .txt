@@ -1,0 +1,10 @@
+Comment l'analyse des données sur les deals eBay peut-elle être utilisée pour comprendre les
+préférences des consommateurs et les tendances du marché ?
+
+L'analyse des réductions offertes sur les produits peut aider à évaluer la sensibilité des
+consommateurs aux prix. Cela pourrait révéler quelles réductions sont les plus efficaces pour
+stimuler les ventes et quelles gammes de prix sont les plus attractives pour les acheteurs.
+
+ En examinant les fluctuations des deals au fil du temps, il est possible de repérer des tendances
+ saisonnières dans les achats des consommateurs cela peut aider les vendeurs à planifier leurs stocks
+ et leurs promotions en fonction des périodes de l'année.
