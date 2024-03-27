@@ -5,10 +5,10 @@ FROM python:3.9
 WORKDIR /app
 
 # Copier le fichier spider dans le conteneur
-COPY spiders/ebay_spider.py .
+COPY ScrapEbay/spiders/ebay_spider.py .
 
 # Installer Scrapy et ses dépendances
-RUN pip install --no-cache-dir scrapy==2.6.0
+RUN pip install --no-cache-dir scrapy
 
 # Commande à exécuter lorsque le conteneur démarre
-CMD ["scrapy", "runspider", "spiders/ebay_spider.py"]
+CMD ["scrapy", "runspider", "ebay_spider.py"]
