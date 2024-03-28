@@ -1,5 +1,6 @@
 import scrapy
 from ScrapEbay.items import EbayItem
+from ScrapEbay.pipelines import EbayPipeline
 
 class EbaySpiderSpider(scrapy.Spider):
     name = 'ebay_spider'
@@ -15,4 +16,6 @@ class EbaySpiderSpider(scrapy.Spider):
             item['price'] = product.css('.dne-itemtile-detail .first::text').get()
             item['old_price'] = product.css('.dne-itemtile-detail .itemtile-price-strikethrough::text').get()
             item['discount'] = product.css('.dne-itemtile-detail .itemtile-price-bold::text').get()
-            yield item
+
+        ebay_pipeline = EbayPipeline()
+        ebay_pipeline.display_data()    

@@ -16,3 +16,9 @@ class EbayPipeline:
     def close_spider(self, spider):
         self.cursor.close()
         self.conn.close()
+
+    def display_data(self):
+        self.cursor.execute("SELECT * FROM products")
+        rows = self.cursor.fetchall()
+        for row in rows:
+            print(row)
