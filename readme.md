@@ -56,8 +56,6 @@ Le pipeline `EbayPipeline` est activé dans le fichier `settings.py` avec la pri
 
 Pour lancer le scraping en local, exécutez la commande suivante dans votre terminal : `scrapy crawl ebay_spider`
 
-### Lancement docker
-
 ### Lancement Docker
 
 Pour lancer le scraping à l'aide de Docker, suivez ces étapes :
