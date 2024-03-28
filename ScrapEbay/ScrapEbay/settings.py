@@ -91,3 +91,9 @@ ROBOTSTXT_OBEY = True
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+
+# Configure item pipelines
+ITEM_PIPELINES = {
+    'ScrapEbay.pipelines.EbayPipeline': 300,
+}
+
