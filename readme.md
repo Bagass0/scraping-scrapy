@@ -6,7 +6,6 @@ Ce projet utilise le framework Scrapy pour extraire des informations à partir d
 
 Le projet est organisé comme suit :
 
-
 - **ScrapEbay/** : Répertoire racine du projet.
   - **ScrapEbay/** : Module principal du projet.
     - **items.py** : Définition des items pour stocker les données extraites.
@@ -21,7 +20,7 @@ Le projet est organisé comme suit :
 
 ### Spider eBay
 
-Le spider `ebay_spider` extrait les informations telles que l'image, le nom, le prix, le prix précédent et la réduction des produits à partir de la page des offres eBay.
+Le spider `ebay_spider` est responsable de parcourir la page des offres eBay et d'extraire les informations pertinentes sur chaque produit, telles que l'image, le nom, le prix, le prix précédent et la réduction.
 
 ### Items
 
@@ -34,8 +33,8 @@ Les items sont définis dans le fichier `items.py`. Chaque item correspond à un
 
 ### Pipeline
 
-Les données extraites sont envoyées au pipeline `EbayPipeline` pour être traitées et stockées dans la base de données SQLite `ebay.db`.
+Les données extraites par le spider sont envoyées au pipeline `EbayPipeline` pour être traitées avant d'être stockées dans la base de données SQLite `ebay.db`. Le pipeline gère notamment l'insertion des données dans la base de données.
 
 ## Configuration
 
-Le pipeline `EbayPipeline` est activé dans le fichier `settings.py` avec la priorité 300.
+Le pipeline `EbayPipeline` est activé dans le fichier `settings.py` avec la priorité 300. Cette priorité indique l'ordre dans lequel les pipelines sont exécutés, et une priorité de 300 signifie que ce pipeline sera exécuté après d'autres pipelines ayant une priorité inférieure.
