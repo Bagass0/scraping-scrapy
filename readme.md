@@ -33,13 +33,13 @@ Les items sont définis dans le fichier `items.py`. Chaque item correspond à un
 - `old_price` : Prix précédent du produit (s'il existe).
 - `discount` : Montant de la réduction du produit (s'il existe).
 
-![items](items/spider.png)
+![items](images/items.png)
 
 ### Pipeline
 
 Les données extraites par le spider sont envoyées au pipeline `EbayPipeline` pour être traitées avant d'être stockées dans la base de données SQLite `ebay.db`. Le pipeline gère notamment l'insertion des données dans la base de données.
 
-![pipelines](pipelines/spider.png)
+![pipelines](images/pipelines.png)
 
 ## Configuration
 
@@ -49,4 +49,4 @@ Le pipeline `EbayPipeline` est activé dans le fichier `settings.py` avec la pri
 ## Jupyter Notebook 
 ### Résultats de Scraping eBay
 
-![exemple](exemple/spider.png)
+![exemple](images/exemple.png)
